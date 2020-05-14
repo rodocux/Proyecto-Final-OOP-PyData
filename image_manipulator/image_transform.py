@@ -4,14 +4,14 @@ import numpy as np
 class ImageColor:
 
 	@classmethod
-	def gray_scale(self,img):
+	def gray_scale(cls,img):
 		"""Convierte una imagen en color a uma imagen en blanco y negro"""
 		gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		return gray_img
 
 
 	@classmethod
-	def hsv(self, img):
+	def hsv(cls, img):
 		"""Convierte una imagen en color a una imagen HSV"""
 		hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 		return hsv_img
@@ -20,7 +20,7 @@ class ImageColor:
 class ImageTransform:
 
 	@classmethod
-	def resize(self, img, percent_size):
+	def resize(cls, img, percent_size):
 		"""Redimensiona una imagen al porcentaje dado"""
 		new_width = int(img.shape[1] * percent_size / 100)
 		new_height = int(img.shape[0] * percent_size / 100)
@@ -29,7 +29,7 @@ class ImageTransform:
 		return resize_img
 
 	@classmethod
-	def traslation(self, img, new_x, new_y):
+	def traslation(cls, img, new_x, new_y):
 		"""Realiza una traslacion de una imagen a las nuevas coordenadas
 		x e y"""
 		rows,cols = img.shape[0:2]
@@ -38,7 +38,7 @@ class ImageTransform:
 		return tras_img
 
 	@classmethod
-	def rotation(self, img, grades):
+	def rotation(cls, img, grades):
 		"""Realiza una rotacion de una imagen cierta cantidad de grados"""
 		rows,cols = img.shape[0:2]
 		M = cv2.getRotationMatrix2D((cols/2,rows/2),grades,1)
